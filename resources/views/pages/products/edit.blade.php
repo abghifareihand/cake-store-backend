@@ -26,8 +26,12 @@
                     @method('PUT')
                     <div class="card-body">
                         <div class="form-group">
-                            <label>Name Product</label>
+                            <label>Name</label>
                             <input type="text" class="form-control" name="name" value="{{ $product->name }}">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" name="description" style="height: 150px;">{{ $product->description }}</textarea>
                         </div>
                         <div class="form-group">
                             <label>Price</label>
@@ -43,17 +47,17 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Photo Product</label>
+                            <label>Photo</label>
                             <div class="col-sm-12 col-md-7">
                                 <div id="image-preview" class="image-preview">
                                     @if (Str::startsWith($product->image, 'http'))
                                     <!-- Jika gambar produk adalah tautan langsung -->
                                     <img src="{{ $product->image }}" alt="Product Image"
-                                        style="max-width: 250px; max-height: 250px;">
+                                        style="width: 250px; height: 250px; object-fit: cover;">
                                     @elseif ($product->image)
                                     <!-- Jika gambar produk disimpan di dalam direktori storage -->
                                     <img src="{{ asset($product->image) }}" alt="Product Image"
-                                        style="max-width: 250px; max-height: 250px;">
+                                        style="width: 250px; height: 250px; object-fit: cover;">
                                     @else
                                     <label for="image-upload" id="image-label">Choose File</label>
                                     <input type="file" name="image" id="image-upload" />

@@ -25,8 +25,12 @@
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label>Product Name</label>
+                            <label>Name</label>
                             <input type="text" class="form-control" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" name="description" rows="5" style="min-height: 150px;"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Price</label>
@@ -40,7 +44,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Photo Product</label>
+                            <label>Photo</label>
                             <div class="col-sm-12 col-md-7">
                                 <div id="image-preview" class="image-preview">
                                     <label for="image-upload" id="image-label">Choose File</label>

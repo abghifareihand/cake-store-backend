@@ -14,7 +14,7 @@
                 </a>
             </li>
             <li class="{{ Request::is('users') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('users.index') }}"><i class="fa fa-users">
+                <a class="nav-link" href="{{ route('users.index') }}"><i class="fa fa-user">
                     </i> <span>Users</span>
                 </a>
             </li>

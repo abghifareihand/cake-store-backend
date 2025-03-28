@@ -28,6 +28,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('user123'),
         ]);
 
-        User::factory(10)->create();
+        // User::factory(10)->create();
     }
 }

@@ -33,7 +33,6 @@
                                         <th>Photo</th>
                                         <th>Name</th>
                                         <th>Price</th>
-                                        <th>Created</th>
                                         <th style="text-align: center;">Action</th>
                                     </tr>
 
@@ -52,7 +51,6 @@
                                         </td>
                                         <td>{{ $product->name }}</td>
                                         <td>{{ 'Rp ' . number_format($product->price, 0, ',', '.') }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($product->created_at)->format('l, d F Y') }}</td>
                                         <td>
                                             <div class="d-flex justify-content-center">
                                                 <a href='{{ route('products.edit', $product->id) }}'

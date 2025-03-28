@@ -33,7 +33,6 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Role</th>
-                                        <th>Created At</th>
                                         <th style="text-align: center;">Action</th>
                                     </tr>
                                     @foreach ($users as $user)
@@ -56,7 +55,6 @@
                                         <div class="badge badge-success">{{ strtoupper($user->role) }}</div>
                                         @endif
                                     </td>
-                                       <td>{{ \Carbon\Carbon::parse($user->created_at)->format('l, d F Y') }}</td>
                                        <td>
                                         <div class="d-flex justify-content-center">
                                             @if ($user->role !== 'admin')
