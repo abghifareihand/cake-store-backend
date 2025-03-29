@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CartController;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProductController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 // ✅ ROUTE UNTUK AUTHENTICATION
@@ -24,4 +24,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/cart', [CartController::class, 'addToCart']);
     Route::put('/cart/{id}', [CartController::class, 'updateCart']);
     Route::delete('/cart/{id}', [CartController::class, 'removeFromCart']);
+    Route::delete('/cart', [CartController::class, 'clearCart']);
+
+    // Order Routes
+    Route::post('/order', [OrderController::class, 'order']);
+    Route::get('/order', [OrderController::class, 'getOrder']);
 });
