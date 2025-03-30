@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('trx_number')->unique();
             $table->string('address');
             $table->unsignedBigInteger('total_price');
-            $table->enum('status', ['pending', 'paid', 'expired'])->default('pending');
+            $table->enum('status', ['pending', 'paid', 'expired', 'cancelled'])->default('pending');
             $table->string('payment_method');
             $table->string('payment_va')->nullable();
             $table->string('bank_name')->nullable();

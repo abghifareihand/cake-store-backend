@@ -93,12 +93,29 @@ class OrderController extends Controller
         $userId = $request->user()->id;
 
         // Ambil semua order yang dimiliki oleh user yang sedang login
-        $orders = Order::where('user_id', $userId)->with('items.product')->get();
+        $orders = Order::where('user_id', $userId)
+            ->with('items.product')
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return response()->json([
             'status' => 'success',
             'message' => 'Orders retrieved successfully',
             'data' => $orders
+        ]);
+    }
+
+    public function checkOrderStatus(Request $request, $orderId)
+    {
+        $userId = $request->user()->id;
+        $order = Order::where('id', $orderId)->where('user_id', $userId)->first();
+        if (!$order) {
+            return response()->json([
+                'message' => 'Order not found or unauthorized'
+            ], 404);
+        }
+        return response()->json([
+            'status' => $order->status,
         ]);
     }
 }
